@@ -1,94 +1,29 @@
 import Image from 'next/image'
 import styles from './page.module.css'
+import Banner from '@/components/Banner'
+import Card from '@/components/Card'
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+      <Banner />
+      <div style={{margin: "5px 20px", textAlign:"center"}}>
+        <h1>COVID-19 Vaccine Myths vs. Facts</h1>
+        <h2>Click to reveal the truth!</h2>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+      <div style={{display: "flex", marginLeft: "20px", justifyContent:"space-around", alignContent:"space-around", flexWrap:"wrap"}}>
+        <Card 
+          frontContent={<h3>MYTH: Getting a COVID-19 vaccine will cause me to test positive on a viral test.</h3>}
+          backContent={<h3>FACT: None of the authorized and recommended COVID-19 vaccines can cause you to test positive on viral tests, which are used to see if you have a current infection.​</h3>}
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <Card 
+          frontContent={<h3>MYTH: The ingredients in COVID-19 vaccines are dangerous.</h3>}
+          backContent={<h3>FACT: Nearly all the ingredients in COVID-19 vaccines are also ingredients in many foods – fats, sugars, and salts.</h3>}
+        />
+        <Card 
+          frontContent={<h3>MYTH: The natural immunity I get from being sick with COVID-19 is better than the immunity I get from COVID-19 vaccination.</h3>}
+          backContent={<h3>FACT: Getting a COVID-19 vaccination is a safer and more dependable way to build immunity to COVID-19 than getting sick with COVID-19.</h3>}
+        />
       </div>
     </main>
   )
