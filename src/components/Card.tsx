@@ -1,26 +1,18 @@
-"use client";
-import styles from './card.module.css'
 import Image from 'next/image'
-import { useState, ReactNode } from 'react'
-interface Props {
-  frontContent: ReactNode;
-  backContent: ReactNode;
-}
 
-export default function Card({ frontContent, backContent }: Props) {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleCardClick = () => {
-    setIsFlipped(!isFlipped);
-  };
+export default function Card({ hospitalName, imgSrc }: { hospitalName: string, imgSrc: string }) {
 
   return (
-    <div
-      className={`${styles.card}`}
-      onClick={handleCardClick}
-    >
-      <div className={`${styles.face} ${isFlipped ? "flipped" : ""}`} style={{backgroundColor: isFlipped ? "#1cac70" : "#ac1c1c"}}>
-        {isFlipped ? backContent : frontContent}
+    <div className='w-1/5 h-[300px] bg-white  rounded-lg shadow-[0px_0px_20px_rgba(0,0,0,1)] transition-shadow hover:shadow-[0px_0px_15px_rgba(128,128,30,1)]'>
+      <div className='w-full h-[70%] relative rounded-t-lg'>
+        <Image src={imgSrc} 
+        alt={hospitalName} 
+        fill={true}
+        className='rounded-t-lg object-cover'
+        />
+      </div>
+      <div className='w-full h-[30%] p-[10px] text-black font-semibold text-xl'>
+        {hospitalName}
       </div>
     </div>
   )
