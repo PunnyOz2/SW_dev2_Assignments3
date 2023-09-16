@@ -17,7 +17,9 @@ export default function Card({ hospitalName, imgSrc, onRating, currentRating }: 
           className='rounded-t-lg object-cover'
           />
         </div>
-        <Rating name="simple-controlled" value={rating} onChange={(e, newvalue) => {e.stopPropagation(), onRating(hospitalName, newvalue)}} 
+        <Rating name="simple-controlled" value={rating} 
+        onClick={(e) => {e.stopPropagation()}}
+        onChange={(e, newvalue) => {e.stopPropagation(); onRating(hospitalName, newvalue)}} 
         className='w-full p-[5px]' size="large"/>
         <Divider light/>
         <div className='w-full h-[30%] py-[5px] pl-[10px] text-black font-semibold text-xl'>
@@ -27,3 +29,7 @@ export default function Card({ hospitalName, imgSrc, onRating, currentRating }: 
     </InteractiveCard>
   )
 }
+
+// With stopPropagation, only the button's click handler is called while the div's click handler never fires.
+
+// Where as if you use preventDefault, only the browser's default action is stopped but the div's click handler still fires.
