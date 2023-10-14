@@ -17,10 +17,12 @@ export default function Card({ hospitalName, imgSrc, onRating, currentRating }: 
           className='rounded-t-lg object-cover'
           />
         </div>
-        <Rating name="simple-controlled" value={rating} 
-        onClick={(e) => {e.stopPropagation()}}
-        onChange={(e, newvalue) => {e.stopPropagation(); onRating(hospitalName, newvalue)}} 
-        className='w-full p-[5px]' size="large"/>
+        {
+          onRating?<Rating name="simple-controlled" value={rating} 
+          onClick={(e) => {e.stopPropagation()}}
+          onChange={(e, newvalue) => {e.stopPropagation(); onRating(hospitalName, newvalue)}} 
+          className='w-full p-[5px]' size="large"/>:''
+        }
         <Divider light/>
         <div className='w-full h-[30%] py-[5px] pl-[10px] text-black font-semibold text-xl'>
           {hospitalName}
