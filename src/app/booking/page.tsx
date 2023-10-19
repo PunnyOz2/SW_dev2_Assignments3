@@ -1,10 +1,12 @@
 import LocationDateReserve from '@/components/LocationDateReserve'
 import { Select, MenuItem, TextField, Button } from "@mui/material"
 import SendIcon from '@mui/icons-material/Send'
-import { blueGrey } from '@mui/material/colors'
+import UserDashboard from '@/components/UserDashboard'
+
 export default function Home() {
     return (
         <main className="w-[100%] flex flex-col items-center space-y-4 mt-3">
+            <UserDashboard />
             <div className="w-fit space-y-6 m-5">
                 <div className="text-3xl font-medium text-center">แบบฟอร์มสำหรับการจองวัคซีน</div>
                 <div className='flex px-3 justify-between gap-2 flex-wrap'>
