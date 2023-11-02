@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import getHospital from '@/libs/getHospital'
+import { Button } from '@mui/material'
+import Link from 'next/link'
 export default async function HospitalDetailPage({params}: {params: {hid:string}}){
     const hospitalDetail = await getHospital(params.hid)
     // const mockHospital = new Map()
@@ -22,6 +24,9 @@ export default async function HospitalDetailPage({params}: {params: {hid:string}
                     <h2 className='pl-2 text-lg mx-5 font-medium'>{hospitalDetail.data.postalcode}</h2>
                     <h2 className='pl-2 text-lg mx-5 font-medium'>{hospitalDetail.data.tel}</h2>
                 </div>
+                <Link href={`/booking?hid=${params.hid}&hospitalName=${hospitalDetail.data.name}`}>
+                    <Button variant="contained" color="success" size="large" className='bg-blue-300'>Book here</Button>
+                </Link>
             </div>
         </main>
     )
